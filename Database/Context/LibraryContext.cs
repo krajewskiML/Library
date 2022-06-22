@@ -18,6 +18,7 @@ namespace Library.Database.Context
         public DbSet<Book> Books { get; set; }
         public DbSet<Rent> Rents { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<BookReminder> BookReminders { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

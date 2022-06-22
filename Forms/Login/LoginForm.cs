@@ -16,6 +16,7 @@ namespace Library.Forms
         public LoginForm()
         {
             InitializeComponent();
+            PasswordTextBox.PasswordChar = '*';
         }
 
         private void LoginButton_Click(object sender, EventArgs e)

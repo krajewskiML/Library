@@ -21,8 +21,8 @@ namespace Library.Database.Models
         {
             StringBuilder sb = new StringBuilder();
             sb.Append(Title);
-            sb.Append(" - ");
-            sb.Append(Author);
+            /*sb.Append(" - ");
+            sb.Append(Author);*/
             return sb.ToString();
         }
     }

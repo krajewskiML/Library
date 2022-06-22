@@ -70,5 +70,14 @@ namespace Library.Database.Controllers
                 return books;
             }
         }
+
+        public static string getTitle(int bookId)
+        {
+            using (var db = new LibraryContext())
+            {
+                var book = db.Books.Where(b =>b.BookId == bookId).First();
+                return book.Title;
+            }
+        }
     }
 }

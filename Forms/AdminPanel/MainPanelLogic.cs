@@ -16,12 +16,46 @@ namespace Library.Forms.AdminPanel
         public MainPanelLogic(User user)
         {
             currentUser = user;
+            checkForReminders();
+            checkForEndingRents();
         }
         public static void rentHistory(User user)
         {
             var rentHistory = RentController.getUsersRents(user);
             RentHistoryForm rentHistoryForm = new RentHistoryForm(user, rentHistory);
             rentHistoryForm.ShowDialog();
+        }
+
+        private void checkForReminders()
+        {
+            var usersReminders = BookRemiderController.popValidreminders(currentUser);
+            foreach(var reminder in usersReminders)
+            {
+                MessageBox.Show(
+                     reminder.ToString(),
+                     "Book available!",
+                     MessageBoxButtons.OK
+                   );
+            }
+        }
+
+        private void checkForEndingRents()
+        {
+            var endingRents = RentController.getRentsThatNeedToBefinished(currentUser);
+            foreach (var reminder in endingRents)
+            {
+                var titleOfBookToReturn = BookController.getTitle(reminder.BookId);
+                MessageBox.Show(
+                     $"You need to return {titleOfBookToReturn}!",
+                     "Rent ending!",
+                     MessageBoxButtons.OK
+                   );
+            }
+        }
+
+        private void checkForLateReturn()
+        {
+
         }
 
         public void rentHistory()
@@ -137,13 +171,14 @@ namespace Library.Forms.AdminPanel
 
                 //propose to create a reminder if the book is back
                 DialogResult dialogResult = MessageBox.Show(
-                    "Do you want to receive a notification when this book will be available",
-                    "Some Title",
+                    "Book is already rented. Do you want to receive a notification when this book will be available?",
+                    "Book not available",
                     MessageBoxButtons.YesNo
                 );
                 if (dialogResult == DialogResult.Yes)
                 {
-                    //do something
+                    // create a notification
+                    createRemider(book);
                 }
                 
                 return false;
@@ -171,11 +206,6 @@ namespace Library.Forms.AdminPanel
             return BookController.getUserCurrentlyRentedBooks(currentUser);
         }
 
-        public void createNotification(Book book)
-        {
-            throw new NotImplementedException();
-        }
-
         public void returnBook(Book book)
         {
             RentController.returnBook(book, currentUser);
@@ -184,6 +214,17 @@ namespace Library.Forms.AdminPanel
         public void prolongRent(Book book)
         {
             RentController.prolongRent(book, currentUser);
+        }
+
+        internal static void viewBook(Book selectedBook)
+        {
+            BookCreatorForm viewForm = new BookCreatorForm(selectedBook, true);
+            viewForm.ShowDialog();
+        }
+
+        private void createRemider(Book book)
+        {
+            BookRemiderController.createReminder(book, currentUser);
         }
     }
 }

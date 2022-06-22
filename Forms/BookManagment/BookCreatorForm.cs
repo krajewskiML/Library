@@ -32,6 +32,28 @@ namespace Library.Forms.AdminPanel
             fillKnownInfo(book);
         }
 
+        public BookCreatorForm(Book book, bool noEdit)
+        {
+            // this constructor is responsible for viewing details book
+            InitializeComponent();
+            bookId = book.BookId;
+            fillPickers();
+            fillKnownInfo(book);
+            disableEditing();
+        }
+
+        private void disableEditing()
+        {
+            TitleTextBox.Enabled = false;
+            AuthorTextBox.Enabled = false;
+            CurrencyComboBox.Enabled = false;
+            CategoryComboBox.Enabled = false;
+            PriceNumericUpDown.Enabled = false;
+            DescriptionTextBox.Enabled = false;
+            PagesNUmericUpdDown.Enabled = false;
+
+        }
+
         private void fillPickers()
         {
             fillBookCategories();

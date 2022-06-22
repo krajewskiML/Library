@@ -300,9 +300,11 @@
     <Compile Include="Constants\RentConstants.cs" />
     <Compile Include="Database\Context\LibraryContext.cs" />
     <Compile Include="Database\Controllers\BookController.cs" />
+    <Compile Include="Database\Controllers\BookRemiderController.cs" />
     <Compile Include="Database\Controllers\RentController.cs" />
     <Compile Include="Database\Controllers\UserController.cs" />
     <Compile Include="Database\Models\Book.cs" />
+    <Compile Include="Database\Models\BookReminder.cs" />
     <Compile Include="Database\Models\Rent.cs" />
     <Compile Include="Database\Models\User.cs" />
     <Compile Include="Form1.cs">
@@ -318,17 +320,17 @@
       <DependentUpon>MainPanelForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\AdminPanel\MainPanelLogic.cs" />
-    <Compile Include="Forms\AdminPanel\BookCreatorForm.cs">
+    <Compile Include="Forms\BookManagment\BookCreatorForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\AdminPanel\BookCreatorForm.Designer.cs">
+    <Compile Include="Forms\BookManagment\BookCreatorForm.Designer.cs">
       <DependentUpon>BookCreatorForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\AdminPanel\Filter.cs" />
-    <Compile Include="Forms\AdminPanel\RentHistoryForm.cs">
+    <Compile Include="Utilities\Filter.cs" />
+    <Compile Include="Forms\RentHistory\RentHistoryForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\AdminPanel\RentHistoryForm.Designer.cs">
+    <Compile Include="Forms\RentHistory\RentHistoryForm.Designer.cs">
       <DependentUpon>RentHistoryForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Login\LoginForm.cs">
@@ -356,6 +358,14 @@
     <Compile Include="Migrations\20220617153518_returnDateNullable.designer.cs">
       <DependentUpon>20220617153518_returnDateNullable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20220621230742_addBookReminder.cs" />
+    <Compile Include="Migrations\20220621230742_addBookReminder.designer.cs">
+      <DependentUpon>20220621230742_addBookReminder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20220621231716_addBookReminderProper.cs" />
+    <Compile Include="Migrations\20220621231716_addBookReminderProper.designer.cs">
+      <DependentUpon>20220621231716_addBookReminderProper.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\LibraryContextModelSnapshot.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -363,10 +373,10 @@
     <EmbeddedResource Include="Forms\AdminPanel\MainPanelForm.resx">
       <DependentUpon>MainPanelForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\AdminPanel\BookCreatorForm.resx">
+    <EmbeddedResource Include="Forms\BookManagment\BookCreatorForm.resx">
       <DependentUpon>BookCreatorForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\AdminPanel\RentHistoryForm.resx">
+    <EmbeddedResource Include="Forms\RentHistory\RentHistoryForm.resx">
       <DependentUpon>RentHistoryForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login\LoginForm.resx">

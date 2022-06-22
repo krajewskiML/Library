@@ -46,12 +46,12 @@
             this.RentHistoryListBox.FormattingEnabled = true;
             this.RentHistoryListBox.Location = new System.Drawing.Point(13, 45);
             this.RentHistoryListBox.Name = "RentHistoryListBox";
-            this.RentHistoryListBox.Size = new System.Drawing.Size(302, 251);
+            this.RentHistoryListBox.Size = new System.Drawing.Size(580, 251);
             this.RentHistoryListBox.TabIndex = 1;
             // 
             // OKButton
             // 
-            this.OKButton.Location = new System.Drawing.Point(127, 331);
+            this.OKButton.Location = new System.Drawing.Point(264, 331);
             this.OKButton.Name = "OKButton";
             this.OKButton.Size = new System.Drawing.Size(75, 23);
             this.OKButton.TabIndex = 2;
@@ -63,11 +63,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(327, 366);
+            this.ClientSize = new System.Drawing.Size(605, 366);
             this.Controls.Add(this.OKButton);
             this.Controls.Add(this.RentHistoryListBox);
             this.Controls.Add(this.UserRentHistoryLabel);
             this.Name = "RentHistoryForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RentHistory";
             this.ResumeLayout(false);
             this.PerformLayout();

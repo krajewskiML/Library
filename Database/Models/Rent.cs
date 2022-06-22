@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Library.Database.Controllers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,10 +17,22 @@ namespace Library.Database.Models
 
         override public string ToString()
         {
-            return $"asdfasdfasfd {this.RentId}";
+            // get books title
+            var title = BookController.getTitle(BookId);
             // title author rented at date (not returned / returned at)
             StringBuilder sb = new StringBuilder();
-            sb.Append(sb.ToString());
+            sb.Append(title);
+            sb.Append(" has been rented on: ");
+            sb.Append(Rented);
+            if(Returned == null)
+            {
+                sb.Append(" and has not been returned");
+            }
+            else
+            {
+                sb.Append(" and has been returned on: ");
+                sb.Append(Returned);
+            }
             return sb.ToString();
         }
     }

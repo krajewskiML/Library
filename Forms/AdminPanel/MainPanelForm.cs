@@ -130,6 +130,15 @@ namespace Library.Forms.AdminPanel
             if (mainPanelLogic.currentUser.IsAdmin)
             {
                 // if admin is the current user the user must be picked
+                if (UsersListBox.SelectedItem == null)
+                {
+                    MessageBox.Show(
+                      $"You need to pick the user first",
+                      "Book not picked",
+                      MessageBoxButtons.OK
+                    );
+                    return;
+                }
                 var selectedUser = (User)UsersListBox.SelectedItem;
                 MainPanelLogic.rentHistory(selectedUser);
             }
@@ -310,6 +319,22 @@ namespace Library.Forms.AdminPanel
                 MessageBoxButtons.OK
             );
             return;
+        }
+
+        private void BookDetailsButton_Click(object sender, EventArgs e)
+        {
+            if (selectedBook != null)
+            {
+                MainPanelLogic.viewBook(selectedBook);
+            }
+            else
+            {
+                MessageBox.Show(
+                  $"You need to pick book first",
+                  "Book not picked",
+                  MessageBoxButtons.OK
+                );
+            }
         }
     }
 }

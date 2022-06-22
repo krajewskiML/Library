@@ -208,6 +208,7 @@
             this.Controls.Add(this.TitleLabel);
             this.Controls.Add(this.TitleTextBox);
             this.Name = "BookCreatorForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BookCreatorForm";
             ((System.ComponentModel.ISupportInitialize)(this.PriceNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PagesNUmericUpdDown)).EndInit();

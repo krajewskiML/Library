@@ -180,6 +180,7 @@
             // 
             // BookGridView
             // 
+            this.BookGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.BookGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.BookGridView.Location = new System.Drawing.Point(12, 21);
             this.BookGridView.Name = "BookGridView";
@@ -468,6 +469,7 @@
             this.BookDetailsButton.TabIndex = 43;
             this.BookDetailsButton.Text = "Book\'s Details";
             this.BookDetailsButton.UseVisualStyleBackColor = true;
+            this.BookDetailsButton.Click += new System.EventHandler(this.BookDetailsButton_Click);
             // 
             // MainPanelForm
             // 
@@ -517,6 +519,7 @@
             this.Controls.Add(this.UsersListBox);
             this.Controls.Add(this.UsersLabel);
             this.Name = "MainPanelForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminPanelForm";
             ((System.ComponentModel.ISupportInitialize)(this.BookGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MinimalPriceNumericalUpDown)).EndInit();

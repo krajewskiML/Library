@@ -1,4 +1,5 @@
-﻿using Library.Database.Context;
+﻿using Library.Constants;
+using Library.Database.Context;
 using Library.Database.Models;
 using System;
 using System.Collections.Generic;
@@ -73,6 +74,18 @@ namespace Library.Database.Controllers
                 Rent rent = db.Rents.Where(r => r.BookId == book.BookId && r.UserId == user.UserId && r.Returned == null).First();
                 rent.Rented = DateTime.Now;
                 db.SaveChanges();
+            }
+        }
+
+        public static List<Rent> getRentsThatNeedToBefinished(User user)
+        {
+            using (var db = new LibraryContext())
+            {
+                var now = DateTime.Now;
+                var max_time = RentConstants.REMIND_AFTER_TIME;
+                var unfinishedRents = db.Rents.Where(r => r.Returned == null && r.UserId == user.UserId).ToList();
+                var finishingRents = unfinishedRents.Where(r => now - r.Rented > max_time).ToList();
+                return finishingRents;
             }
         }
     }
